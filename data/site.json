@@ -1,89 +1,445 @@
 {
+  "site": {
+    "name": "株式会社〇〇 採用サイト",
+    "description": "〇〇株式会社の採用情報サイトです",
+    "url": "https://recruit.example.com",
+    "logo": "/images/logo.svg",
+    "ogImage": "/images/og-recruit.jpg"
+  },
+
   "navigation": {
-    "main": [],
-    "footer": [],
+    "main": [
+      { "label": "会社を知る", "href": "/about" },
+      { "label": "仕事を知る", "href": "/work" },
+      { "label": "社員を知る", "href": "/people" },
+      { "label": "働く環境", "href": "/culture" },
+      { "label": "募集要項", "href": "/recruit" },
+      { "label": "FAQ", "href": "/faq" }
+    ],
+    "footer": [
+      { "label": "会社を知る", "href": "/about" },
+      { "label": "仕事を知る", "href": "/work" },
+      { "label": "社員を知る", "href": "/people" },
+      { "label": "働く環境", "href": "/culture" },
+      { "label": "募集要項", "href": "/recruit" },
+      { "label": "FAQ", "href": "/faq" },
+      { "label": "プライバシーポリシー", "href": "/privacy" }
+    ],
     "cta": {
-      "label": "お問い合わせ",
-      "href": "/contact"
+      "label": "エントリー",
+      "href": "/entry"
     }
   },
+
   "company": {
-    "name": "",
-    "nameShort": "",
-    "nameEn": "",
+    "name": "株式会社〇〇",
+    "nameShort": "〇〇",
+    "nameEn": "Example Corporation",
     "id": "",
-    "ceo": "",
-    "established": "",
-    "capital": "",
-    "revenue": "",
-    "employees": "",
-    "business": "",
+    "ceo": "山田 一郎",
+    "established": "1970年4月",
+    "capital": "5,000万円",
+    "revenue": "10億円（2024年度）",
+    "employees": "128名",
+    "business": "精密機器製造業",
     "license": "",
-    "catchphrase": "",
-    "mission": ""
+    "catchphrase": "技術と誠実で、社会に貢献する",
+    "mission": "私たちは、高い技術力と誠実な姿勢で、お客様に信頼される製品とサービスを提供し、社会の発展に貢献します。"
   },
+
   "contact": {
-    "phone": "",
-    "phoneFormatted": "",
-    "phoneTel": "",
+    "phone": "000-000-0000",
+    "phoneFormatted": "000-000-0000",
+    "phoneTel": "tel:0000000000",
     "fax": "",
-    "email": "",
-    "hours": "",
-    "recruitContact": ""
+    "email": "recruit@example.com",
+    "hours": "平日 9:00〜17:00",
+    "recruitContact": "採用担当"
   },
+
   "locations": {
     "headquarters": {
       "name": "本社",
-      "zipCode": "",
-      "address": "",
-      "access": "",
-      "mapUrl": ""
+      "zipCode": "000-0000",
+      "address": "〇〇県〇〇市〇〇区1-2-3",
+      "access": "〇〇駅より徒歩10分",
+      "mapUrl": "https://maps.google.com/"
     },
     "branches": []
   },
+
   "social": {
     "instagram": ""
   },
+
   "images": {
     "logo": "/images/logo.png",
     "logoSquare": "/images/logo-square.png",
     "logoOnly": "/images/logo-only.png"
   },
+
   "seo": {
-    "titleSuffix": "",
-    "defaultTitle": "",
-    "defaultDescription": ""
+    "titleSuffix": " | 株式会社〇〇 採用サイト",
+    "defaultTitle": "株式会社〇〇 採用サイト",
+    "defaultDescription": "株式会社〇〇の採用情報サイトです。私たちと一緒に働きませんか？"
   },
-  "stats": {
-    "yearsInBusiness": "",
-    "projectsCompleted": "",
-    "employees": "",
-    "retentionRate": ""
+
+  "brand": {
+    "primaryColor": "#1a365d",
+    "primaryColorLight": "#2d4a7c",
+    "accentColor": "#3182ce"
   },
-  "history": [],
-  "services": [],
-  "works": [],
-  "news": [],
+
   "recruit": {
-    "catchphrase": "",
-    "subCatchphrase": "",
-    "data": [],
+    "concept": {
+      "mainCopy": "仲間と、未来を、つくる。",
+      "subCopy": "株式会社〇〇は、精密機器製造を通じて日本のものづくりを支えています。",
+      "description": "私たちは、技術を磨き、仲間と協力し、お客様に喜ばれる製品を作り続けてきました。\n\n50年以上の歴史の中で培った技術とノウハウ。それを次の世代へつなげていくために、今、新しい仲間を求めています。\n\nあなたの力を、ここで活かしてみませんか。"
+    },
+
+    "ceo": {
+      "name": "代表取締役 山田 一郎",
+      "photo": "/images/ceo.jpg",
+      "message": "私たちの会社は、1970年の創業以来、「技術と誠実」を大切にしてきました。\n\n製造業を取り巻く環境は大きく変化していますが、「人を大切にする」という姿勢は変わりません。社員一人ひとりが成長できる環境を整え、やりがいを持って働ける会社であり続けたいと考えています。\n\n私たちと一緒に、日本のものづくりの未来を支えていきましょう。あなたとお会いできることを楽しみにしています。",
+      "signature": "/images/ceo-signature.png"
+    },
+
+    "philosophy": {
+      "title": "私たちの約束",
+      "statement": "技術と誠実で、社会に貢献する",
+      "description": "この理念は創業者が掲げた言葉です。50年以上経った今も、私たちの行動の原点となっています。技術を高め続けること、誠実に向き合うこと。この2つを大切にしながら、お客様と社会に貢献し続けます。"
+    },
+
+    "companyFacts": [
+      { "number": 52, "unit": "年", "label": "創業", "size": "large" },
+      { "number": 128, "unit": "名", "label": "社員数", "size": "medium" },
+      { "number": 34.2, "unit": "歳", "label": "平均年齢", "size": "small" },
+      { "number": 42, "unit": "%", "label": "女性比率", "size": "small" },
+      { "number": 78, "unit": "%", "label": "有給取得率", "size": "medium" },
+      { "number": 91, "unit": "%", "label": "3年定着率", "size": "large" }
+    ],
+
+    "history": [
+      { "year": 1970, "event": "創業。精密部品の製造を開始" },
+      { "year": 1985, "event": "本社工場完成。生産能力を大幅拡大" },
+      { "year": 2000, "event": "ISO9001認証取得" },
+      { "year": 2015, "event": "第二工場稼働開始。新規事業領域に進出" },
+      { "year": 2023, "event": "創業者が地域産業貢献賞を受賞" }
+    ],
+
+    "jobs": [
+      {
+        "id": "manufacturing",
+        "title": "製造スタッフ",
+        "catchcopy": "ものづくりの最前線で、品質を守る",
+        "photo": "/images/work/manufacturing.jpg",
+        "description": "製品の組立から検査まで、ものづくりの現場を支える仕事です。未経験からでも、先輩社員の丁寧な指導のもと、確かな技術を身につけることができます。",
+        "duties": ["製品の組立作業", "品質検査", "梱包・出荷準備", "設備の日常点検"],
+        "appeal": "未経験から技術を身につけ、3年で一人前の技術者に。手に職をつけたい方におすすめです。"
+      },
+      {
+        "id": "engineering",
+        "title": "設計エンジニア",
+        "catchcopy": "アイデアを形にする、技術のプロフェッショナル",
+        "photo": "/images/work/engineering.jpg",
+        "description": "お客様の要望を形にする設計業務です。3D CADを使った設計から、試作・評価まで、製品開発の全工程に関わります。",
+        "duties": ["製品設計（3D CAD）", "試作・評価", "技術文書作成", "お客様との技術打ち合わせ"],
+        "appeal": "最新の設計ツールを使いながら、アイデアを形にする喜びを感じられます。"
+      },
+      {
+        "id": "sales",
+        "title": "営業",
+        "catchcopy": "お客様との信頼関係を築く",
+        "photo": "/images/work/sales.jpg",
+        "description": "既存のお客様へのルート営業が中心です。技術的な知識を身につけながら、お客様の課題解決をサポートします。",
+        "duties": ["既存顧客への定期訪問", "見積書・提案書作成", "納期調整", "新規開拓（一部）"],
+        "appeal": "技術と営業、両方のスキルが身につきます。お客様から「ありがとう」と言われる仕事です。"
+      }
+    ],
+
+    "daySchedule": {
+      "jobId": "manufacturing",
+      "title": "製造スタッフの1日",
+      "items": [
+        { "time": "8:00", "label": "出社・朝礼", "description": "チームで今日の作業内容を確認。安全確認も忘れずに。", "thumbnail": "/images/schedule/morning.jpg" },
+        { "time": "8:30", "label": "作業開始", "description": "担当工程の作業を開始。集中して取り組みます。" },
+        { "time": "10:00", "label": "小休憩", "description": "10分間の休憩。水分補給も大切。" },
+        { "time": "12:00", "label": "昼食", "description": "食堂でお弁当を食べたり、同僚と談笑したり。", "thumbnail": "/images/schedule/lunch.jpg" },
+        { "time": "13:00", "label": "午後の作業", "description": "午後も引き続き作業。午前の続きや別工程を担当することも。" },
+        { "time": "15:00", "label": "休憩", "description": "15分間の休憩。リフレッシュしてラストスパート。" },
+        { "time": "17:00", "label": "片付け・日報", "description": "作業場の清掃と翌日の準備。日報を記入。" },
+        { "time": "17:30", "label": "退社", "description": "お疲れさまでした！定時退社を推奨しています。", "thumbnail": "/images/schedule/evening.jpg" }
+      ]
+    },
+
+    "careerPath": [
+      { "stage": "入社1年目", "title": "基礎習得期", "description": "先輩について基本作業を習得。工具の使い方や安全ルールを学びます。" },
+      { "stage": "入社3年目", "title": "一人立ち期", "description": "担当工程を任される。自分で判断して作業を進められるように。" },
+      { "stage": "入社5年目", "title": "リーダー期", "description": "後輩指導を担当。チームリーダーとしてメンバーをまとめます。" },
+      { "stage": "入社10年目", "title": "専門家期", "description": "スペシャリストとして技術を極めるか、マネジメントの道へ。" }
+    ],
+
+    "employees": [
+      {
+        "id": "yamada",
+        "name": "山田 太郎",
+        "nameKana": "やまだ たろう",
+        "position": "製造部",
+        "joinYear": 2019,
+        "joinType": "new",
+        "photo": {
+          "main": "/images/people/yamada.jpg",
+          "sub": ["/images/people/yamada-work.jpg", "/images/people/yamada-team.jpg"]
+        },
+        "profile": [
+          { "label": "出身地", "value": "埼玉県" },
+          { "label": "趣味", "value": "釣り、サッカー観戦" },
+          { "label": "休日の過ごし方", "value": "家族と公園でピクニック" }
+        ],
+        "catchcopy": "ものづくりの楽しさを、ここで知った",
+        "interview": [
+          { "question": "入社のきっかけは何ですか？", "answer": "地元で働きたいと思っていて、ものづくりにも興味がありました。会社説明会で先輩社員の話を聞いて、「ここで働きたい」と思ったんです。実際に工場を見学させてもらって、雰囲気の良さが決め手になりました。" },
+          { "question": "仕事のやりがいを教えてください", "answer": "自分が作った製品が実際に使われているのを見ると、本当にうれしいです。先日、お客様から「品質が良い」と褒めていただいて、それが一番のモチベーションになっています。" },
+          { "question": "入社前と入社後のギャップはありましたか？", "answer": "思ったより先輩が優しくて驚きました（笑）。厳しい職場をイメージしていたんですが、分からないことは何でも教えてくれます。あと、有給が取りやすいのも良いですね。" },
+          { "question": "就活生へのメッセージをお願いします", "answer": "迷っているなら、まずは会社を見に来てほしいです。雰囲気は来てみないと分からないですから。僕も最初は不安でしたが、今は毎日充実しています。" }
+        ],
+        "quote": "毎日が学びの連続。5年経った今でも、新しい発見があります。",
+        "relatedJobId": "manufacturing"
+      },
+      {
+        "id": "suzuki",
+        "name": "鈴木 花子",
+        "nameKana": "すずき はなこ",
+        "position": "設計部",
+        "joinYear": 2020,
+        "joinType": "mid",
+        "photo": {
+          "main": "/images/people/suzuki.jpg",
+          "sub": ["/images/people/suzuki-work.jpg"]
+        },
+        "profile": [
+          { "label": "出身地", "value": "東京都" },
+          { "label": "前職", "value": "電機メーカーの設計職" },
+          { "label": "趣味", "value": "ヨガ、カフェ巡り" }
+        ],
+        "catchcopy": "転職して見つけた、本当にやりたい仕事",
+        "interview": [
+          { "question": "転職のきっかけは何でしたか？", "answer": "前職では大きな組織の歯車のような感覚があって、もっと製品に深く関わりたいと思っていました。この会社は中堅規模なので、設計から製造まで一貫して関われるのが魅力でした。" },
+          { "question": "中途入社で不安はありましたか？", "answer": "正直、最初は不安でした。でも、入社初日から皆さんが温かく迎えてくれて、すぐに馴染めました。分からないことも聞きやすい雰囲気があります。" },
+          { "question": "女性として働きやすさはどうですか？", "answer": "産休・育休を取得して復帰した先輩もいて、ロールモデルがいるのは心強いです。最近は女性社員も増えてきて、働きやすい環境だと思います。" },
+          { "question": "今後の目標を教えてください", "answer": "技術力をもっと高めて、お客様から「鈴木さんに相談したい」と言われるエンジニアになりたいです。資格取得も頑張っています。" }
+        ],
+        "quote": "自分のアイデアが形になる瞬間が、一番好きです。",
+        "relatedJobId": "engineering"
+      },
+      {
+        "id": "tanaka",
+        "name": "田中 健一",
+        "nameKana": "たなか けんいち",
+        "position": "製造部 係長",
+        "joinYear": 2010,
+        "joinType": "new",
+        "photo": {
+          "main": "/images/people/tanaka.jpg",
+          "sub": ["/images/people/tanaka-work.jpg"]
+        },
+        "profile": [
+          { "label": "出身地", "value": "千葉県" },
+          { "label": "趣味", "value": "DIY、キャンプ" },
+          { "label": "家族構成", "value": "妻と子供2人" }
+        ],
+        "catchcopy": "後輩の成長が、自分の喜び",
+        "interview": [
+          { "question": "入社のきっかけは？", "answer": "工業高校出身で、ものづくりが好きでした。地元の先輩がこの会社で働いていて、紹介してもらったのがきっかけです。" },
+          { "question": "14年間で会社はどう変わりましたか？", "answer": "設備は新しくなりましたし、若い人も増えました。でも、「人を大切にする」という社風は変わっていません。それがこの会社の良いところだと思います。" },
+          { "question": "リーダーとして心がけていることは？", "answer": "後輩が困っていたら声をかけること。自分も先輩にそうしてもらったので。あと、失敗しても責めないこと。失敗から学ぶことの方が多いですから。" },
+          { "question": "これから入社する人へ一言", "answer": "最初は覚えることが多くて大変かもしれませんが、必ず成長できます。一緒に頑張りましょう！" }
+        ],
+        "quote": "14年間、この会社で成長させてもらいました。今度は自分が後輩を育てる番です。",
+        "relatedJobId": "manufacturing"
+      }
+    ],
+
+    "crosstalk": {
+      "title": "若手が語る、うちの会社のホントのところ",
+      "description": "入社1〜5年目の若手社員3人に、会社のリアルな雰囲気を語ってもらいました。",
+      "participants": ["yamada", "suzuki", "tanaka"],
+      "conversation": [
+        { "speaker": "yamada", "text": "入社して驚いたことって何かある？" },
+        { "speaker": "suzuki", "text": "先輩がめっちゃ優しいこと（笑）。もっと厳しいかと思ってた。" },
+        { "speaker": "yamada", "text": "わかる！怖い人いないよね。" },
+        { "speaker": "suzuki", "text": "あと、有給が本当に取れるのにびっくりした。前職では取りにくかったから。" },
+        { "speaker": "yamada", "text": "残業も少ないしね。定時で帰れることが多い。" },
+        { "speaker": "suzuki", "text": "そうそう。プライベートの時間も大切にできるのが良いよね。" }
+      ]
+    },
+
     "benefits": {
-      "vacation": [],
-      "allowances": [],
-      "facilities": []
+      "highlights": [
+        {
+          "title": "育児休暇",
+          "description": "最大2年間の育児休暇を取得可能。男性社員の取得実績もあります。",
+          "testimonial": {
+            "quote": "復帰後も時短勤務ができて、子育てと両立できています。周りのサポートにも感謝しています。",
+            "author": "佐藤 花子",
+            "position": "入社8年目 / 事務部",
+            "photo": "/images/people/sato-thumb.jpg"
+          }
+        },
+        {
+          "title": "資格取得支援",
+          "description": "業務に関連する資格の受験費用を会社が全額負担。合格祝い金も支給します。",
+          "testimonial": {
+            "quote": "会社のサポートのおかげで、技能士の資格を取得できました。スキルアップを応援してくれる環境です。",
+            "author": "伊藤 次郎",
+            "position": "入社6年目 / 製造部",
+            "photo": "/images/people/ito-thumb.jpg"
+          }
+        },
+        {
+          "title": "メンター制度",
+          "description": "入社後1年間、先輩社員がマンツーマンでサポート。仕事の悩みも相談できます。",
+          "testimonial": {
+            "quote": "分からないことをすぐ聞ける環境があったから、安心して仕事を覚えられました。",
+            "author": "山田 太郎",
+            "position": "入社5年目 / 製造部",
+            "photo": "/images/people/yamada-thumb.jpg"
+          }
+        }
+      ],
+      "categories": [
+        {
+          "name": "休暇・休日",
+          "items": ["完全週休2日制（土日）", "年間休日120日", "有給休暇（入社6ヶ月後10日付与）", "慶弔休暇", "産前産後休暇", "育児休暇", "介護休暇"]
+        },
+        {
+          "name": "手当・補助",
+          "items": ["交通費支給（上限月3万円）", "住宅手当（条件あり）", "家族手当", "資格手当", "役職手当", "時間外手当（全額支給）"]
+        },
+        {
+          "name": "制度・サポート",
+          "items": ["資格取得支援制度", "研修制度", "メンター制度", "社内表彰制度", "退職金制度", "財形貯蓄制度"]
+        },
+        {
+          "name": "健康・安全",
+          "items": ["各種社会保険完備", "健康診断（年1回）", "インフルエンザ予防接種補助", "ストレスチェック", "安全衛生教育"]
+        }
+      ]
     },
-    "positions": {
-      "highSchool": { "title": "", "items": [] },
-      "midCareer": { "title": "", "items": [] }
+
+    "training": [
+      { "period": "入社直後", "title": "新人研修", "duration": "2週間", "description": "会社の理念、安全教育、ビジネスマナーの基礎を学びます。" },
+      { "period": "1ヶ月目", "title": "OJT開始", "duration": "", "description": "先輩社員について実務を学びます。メンター制度でサポート。" },
+      { "period": "3ヶ月目", "title": "フォローアップ研修", "duration": "1日", "description": "入社後の振り返りと課題解決。同期との情報交換も。" },
+      { "period": "6ヶ月目", "title": "スキルアップ研修", "duration": "2日", "description": "専門知識の深化。外部講師による技術研修も実施。" },
+      { "period": "1年目", "title": "資格取得支援開始", "duration": "", "description": "業務に必要な資格の取得をサポート。勉強会も開催。" }
+    ],
+
+    "gallery": [
+      { "src": "/images/gallery/factory.jpg", "alt": "工場内の様子", "size": "large" },
+      { "src": "/images/gallery/office.jpg", "alt": "オフィス", "size": "medium" },
+      { "src": "/images/gallery/breakroom.jpg", "alt": "休憩室", "size": "small" },
+      { "src": "/images/gallery/meeting.jpg", "alt": "会議室", "size": "small" },
+      { "src": "/images/gallery/entrance.jpg", "alt": "エントランス", "size": "medium" },
+      { "src": "/images/gallery/event.jpg", "alt": "社内イベント", "size": "small" }
+    ],
+
+    "positions": [
+      {
+        "id": "pos-manufacturing",
+        "jobTitle": "製造スタッフ",
+        "badge": "急募",
+        "employmentType": "正社員",
+        "description": "製品の組立、検査、梱包作業を担当していただきます。",
+        "requirements": "学歴不問、未経験歓迎。ものづくりに興味がある方。",
+        "preferredQualifications": "製造業経験者優遇、フォークリフト免許お持ちの方歓迎",
+        "location": "〇〇県〇〇市（転勤なし）",
+        "workHours": "8:00〜17:00（休憩60分）",
+        "salary": "月給18万円〜25万円（経験・能力による）",
+        "bonus": "年2回（昨年実績: 計3ヶ月分）",
+        "raise": "年1回（4月）",
+        "holidays": "週休2日制（土日）、祝日、年間休日120日",
+        "benefits": "社会保険完備、交通費支給、制服貸与、資格取得支援",
+        "selectionProcess": "書類選考 → 面接（1回）→ 内定"
+      },
+      {
+        "id": "pos-engineering",
+        "jobTitle": "設計エンジニア",
+        "badge": "",
+        "employmentType": "正社員",
+        "description": "3D CADを使用した製品設計、試作・評価を担当していただきます。",
+        "requirements": "高卒以上、CAD経験1年以上",
+        "preferredQualifications": "機械設計技術者資格お持ちの方優遇",
+        "location": "〇〇県〇〇市（転勤なし）",
+        "workHours": "8:00〜17:00（休憩60分）",
+        "salary": "月給22万円〜35万円（経験・能力による）",
+        "bonus": "年2回（昨年実績: 計3ヶ月分）",
+        "raise": "年1回（4月）",
+        "holidays": "週休2日制（土日）、祝日、年間休日120日",
+        "benefits": "社会保険完備、交通費支給、資格取得支援",
+        "selectionProcess": "書類選考 → 一次面接 → 最終面接 → 内定"
+      }
+    ],
+
+    "selectionFlow": [
+      { "step": 1, "title": "エントリー", "description": "当サイトのフォームからご応募ください。" },
+      { "step": 2, "title": "書類選考", "description": "1週間以内にメールにてご連絡します。" },
+      { "step": 3, "title": "面接", "description": "来社またはオンラインで実施します。" },
+      { "step": 4, "title": "内定通知", "description": "面接後1週間以内にご連絡します。" },
+      { "step": 5, "title": "入社", "description": "入社日は相談に応じます。" }
+    ],
+
+    "faq": [
+      {
+        "category": "応募について",
+        "items": [
+          { "question": "未経験でも応募できますか？", "answer": "はい、未経験の方も歓迎しています。入社後の研修で基礎からお教えしますのでご安心ください。実際に、未経験で入社して活躍している社員も多数います。" },
+          { "question": "年齢制限はありますか？", "answer": "ございません。20代〜50代まで幅広い年齢層が活躍しています。" },
+          { "question": "パート・アルバイトの募集はありますか？", "answer": "現在は正社員のみの募集となっております。パート・アルバイトの募集がある場合は、当サイトでお知らせします。" }
+        ]
+      },
+      {
+        "category": "選考について",
+        "items": [
+          { "question": "面接は何回ありますか？", "answer": "基本的に1回です。職種によっては2回実施する場合があります。" },
+          { "question": "オンライン面接は可能ですか？", "answer": "はい、ご希望に応じてオンラインでの面接も可能です。お気軽にご相談ください。" },
+          { "question": "工場見学はできますか？", "answer": "はい、面接時に工場見学も実施しています。実際の職場の雰囲気を見ていただけます。" }
+        ]
+      },
+      {
+        "category": "入社後について",
+        "items": [
+          { "question": "試用期間はありますか？", "answer": "3ヶ月間の試用期間がございます。給与・待遇に差はありません。" },
+          { "question": "配属先はいつ決まりますか？", "answer": "入社前の面接時に、ご希望と適性を考慮して決定します。" },
+          { "question": "転勤はありますか？", "answer": "ございません。当社は本社のみですので、転勤の心配はありません。" }
+        ]
+      },
+      {
+        "category": "福利厚生について",
+        "items": [
+          { "question": "有給休暇は取得しやすいですか？", "answer": "はい、昨年度の取得率は78%でした。計画的な取得を推奨しており、連休と組み合わせて長期休暇を取る社員も多いです。" },
+          { "question": "残業は多いですか？", "answer": "月平均10〜15時間程度です。繁忙期を除き、定時退社を推奨しています。" },
+          { "question": "社員食堂はありますか？", "answer": "食堂はございませんが、休憩室に電子レンジ・冷蔵庫を完備しています。近隣にコンビニや飲食店もあります。" }
+        ]
+      }
+    ],
+
+    "cta": {
+      "primary": { "text": "エントリーする", "href": "/entry" },
+      "secondary": { "text": "募集要項を見る", "href": "/recruit" },
+      "messages": {
+        "top": "あなたの一歩を、待っています。",
+        "people": "仲間になる日を、楽しみにしています。",
+        "culture": "一緒に働きませんか？",
+        "default": "まずは話を聞くだけでも歓迎です。"
+      }
     },
-    "faq": [],
-    "interviews": []
-  },
-  "ceo": {
-    "name": "",
-    "title": "",
-    "image": "",
-    "message": []
+
+    "contact": {
+      "email": "recruit@example.com",
+      "phone": "000-000-0000",
+      "department": "採用担当",
+      "hours": "平日 9:00〜17:00"
+    }
   }
 }

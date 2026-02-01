@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, contact, locations, images, site, navigation } from "@/lib/site";
+import { company, contact, locations, images, navigation, recruit, site } from "@/lib/site";
 
 // ナビゲーションはsite.jsonから読み込み（構成案に基づいてClaude Codeが設定）
 const navLinks = navigation.footer;
@@ -10,7 +10,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-[var(--color-primary)] text-white">
       <div className="max-w-container mx-auto px-6 lg:px-12 pt-12 lg:pt-20 pb-6 lg:pb-10">
         {/* PC: 4 columns */}
         <div className="hidden lg:flex lg:justify-between lg:items-start mb-16">
