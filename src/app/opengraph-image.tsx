@@ -32,7 +32,7 @@ export default async function Image() {
         >
           {siteData.company?.name || "採用サイト"}
         </div>
-        {siteData.recruit?.catchphrase && (
+        {siteData.company?.catchphrase && (
           <div
             style={{
               marginTop: 32,
@@ -40,7 +40,7 @@ export default async function Image() {
               color: "rgba(255, 255, 255, 0.9)",
             }}
           >
-            {siteData.recruit.catchphrase}
+            {siteData.company.catchphrase}
           </div>
         )}
       </div>
