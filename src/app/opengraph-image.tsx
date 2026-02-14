@@ -1,9 +1,8 @@
 import { ImageResponse } from "next/og";
-import { readFile } from "fs/promises";
-import { join } from "path";
+import siteData from "@data/site.json";
 
-export const runtime = "nodejs";
-export const alt = "採用サイト";
+export const runtime = "edge";
+export const alt = siteData.company?.name ? `${siteData.company.name} 採用サイト` : "採用サイト";
 export const size = {
   width: 1200,
   height: 630,
@@ -11,10 +10,6 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  const logoPath = join(process.cwd(), "public/images/logo.png");
-  const logoData = await readFile(logoPath);
-  const logoBase64 = `data:image/png;base64,${logoData.toString("base64")}`;
-
   return new ImageResponse(
     (
       <div
@@ -22,19 +17,32 @@ export default async function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#ffffff",
+          backgroundColor: "#1a3a5c",
         }}
       >
-        <img
-          src={logoBase64}
-          alt="Logo"
+        <div
           style={{
-            width: 500,
-            height: "auto",
+            fontSize: 72,
+            fontWeight: 700,
+            color: "#ffffff",
           }}
-        />
+        >
+          {siteData.company?.name || "採用サイト"}
+        </div>
+        {siteData.recruit?.catchphrase && (
+          <div
+            style={{
+              marginTop: 32,
+              fontSize: 36,
+              color: "rgba(255, 255, 255, 0.9)",
+            }}
+          >
+            {siteData.recruit.catchphrase}
+          </div>
+        )}
       </div>
     ),
     {
