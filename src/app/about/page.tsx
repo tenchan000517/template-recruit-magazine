@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { FadeInUp, FadeInImage, HeroBackground } from "@/components/animations";
 import { recruit, company, locations, contact } from "@/lib/site";
 
 export default function AboutPage() {
@@ -15,7 +15,7 @@ export default function AboutPage() {
     <main>
       {/* Section 1: ページヒーロー */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
+        <HeroBackground className="absolute inset-0">
           <Image
             src="/images/about-hero.jpg"
             alt="会社概要"
@@ -24,71 +24,48 @@ export default function AboutPage() {
             priority
           />
           <div className="absolute inset-0 bg-[var(--color-primary)]/70" />
-        </div>
+        </HeroBackground>
         <div className="relative z-10 text-center text-white px-6">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="text-sm tracking-[0.3em] opacity-80"
-          >
-            ABOUT
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-4 text-3xl lg:text-5xl font-bold"
-          >
-            会社を知る
-          </motion.h1>
+          <FadeInUp>
+            <span className="text-sm tracking-[0.3em] opacity-80">
+              ABOUT
+            </span>
+          </FadeInUp>
+          <FadeInUp delay={100}>
+            <h1 className="mt-4 text-3xl lg:text-5xl font-bold">
+              会社を知る
+            </h1>
+          </FadeInUp>
         </div>
       </section>
 
       {/* Section 2: 代表メッセージ */}
       <section className="py-[100px] lg:py-[140px] px-6">
         <div className="max-w-container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="mb-12"
-          >
+          <FadeInUp className="mb-12">
             <span className="section-label">MESSAGE</span>
             <h2 className="text-2xl lg:text-3xl font-bold">代表メッセージ</h2>
-          </motion.div>
+          </FadeInUp>
 
           <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
             {/* 写真 (40%) */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-2"
-            >
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <Image
-                  src={ceo?.photo || "/images/ceo.jpg"}
-                  alt={ceo?.name || "代表"}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <p className="mt-4 text-sm text-[var(--color-text-tertiary)] text-center">
-                {ceo?.name || "代表取締役"}
-              </p>
-            </motion.div>
+            <div className="lg:col-span-2">
+              <FadeInImage
+                src={ceo?.photo || "/images/ceo.jpg"}
+                alt={ceo?.name || "代表"}
+                fill
+                className="object-cover"
+                containerClassName="relative aspect-[3/4]"
+              />
+              <FadeInUp delay={100}>
+                <p className="mt-4 text-sm text-[var(--color-text-tertiary)] text-center">
+                  {ceo?.name || "代表取締役"}
+                </p>
+              </FadeInUp>
+            </div>
 
             {/* テキスト (60%) */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="lg:col-span-3"
-            >
+            <FadeInUp delay={100} className="lg:col-span-3">
               {/* 引用符装飾 */}
               <div className="relative">
                 <span className="absolute -top-6 -left-4 text-6xl lg:text-8xl text-[var(--color-primary)]/10 font-serif leading-none">
@@ -118,20 +95,14 @@ export default function AboutPage() {
                   />
                 </div>
               )}
-            </motion.div>
+            </FadeInUp>
           </div>
         </div>
       </section>
 
       {/* Section 3: 経営理念・ビジョン */}
       <section className="py-[100px] lg:py-[120px] px-6 bg-[var(--color-bg-primary-light)]">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-[800px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[800px] mx-auto text-center">
           <span className="section-label">PHILOSOPHY</span>
           <h2 className="text-2xl lg:text-3xl font-bold mb-10">
             {philosophy?.title || "私たちの約束"}
@@ -146,23 +117,17 @@ export default function AboutPage() {
           <p className="text-[var(--color-text-secondary)] leading-loose">
             {philosophy?.description}
           </p>
-        </motion.div>
+        </FadeInUp>
       </section>
 
       {/* Section 4: 沿革 */}
       {history && history.length > 0 && (
         <section className="py-[100px] lg:py-[140px] px-6">
           <div className="max-w-container mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-16 text-center"
-            >
+            <FadeInUp className="mb-16 text-center">
               <span className="section-label">HISTORY</span>
               <h2 className="text-2xl lg:text-3xl font-bold">沿革</h2>
-            </motion.div>
+            </FadeInUp>
 
             {/* タイムライン */}
             <div className="relative max-w-[900px] mx-auto">
@@ -171,12 +136,9 @@ export default function AboutPage() {
 
               <div className="space-y-12 lg:space-y-16">
                 {history.map((item, index) => (
-                  <motion.div
+                  <FadeInUp
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    delay={index * 50}
                     className={`relative flex items-start gap-6 lg:gap-0 ${
                       index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                     }`}
@@ -202,7 +164,7 @@ export default function AboutPage() {
 
                     {/* 空のスペース (PC時のみ) */}
                     <div className="hidden lg:block lg:w-1/2" />
-                  </motion.div>
+                  </FadeInUp>
                 ))}
               </div>
             </div>
@@ -213,24 +175,12 @@ export default function AboutPage() {
       {/* Section 5: 会社概要 */}
       <section className="py-[100px] lg:py-[120px] px-6 bg-[var(--color-bg-gray)]">
         <div className="max-w-container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="mb-12 text-center"
-          >
+          <FadeInUp className="mb-12 text-center">
             <span className="section-label">COMPANY</span>
             <h2 className="text-2xl lg:text-3xl font-bold">会社概要</h2>
-          </motion.div>
+          </FadeInUp>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="max-w-[900px] mx-auto bg-white"
-          >
+          <FadeInUp delay={100} className="max-w-[900px] mx-auto bg-white">
             <dl className="divide-y divide-gray-100">
               {[
                 { label: "会社名", value: company.name },
@@ -260,32 +210,21 @@ export default function AboutPage() {
                   </div>
                 ))}
             </dl>
-          </motion.div>
+          </FadeInUp>
         </div>
       </section>
 
       {/* Section 6: アクセス */}
       <section className="py-[100px] lg:py-[120px] px-6">
         <div className="max-w-container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="mb-12"
-          >
+          <FadeInUp className="mb-12">
             <span className="section-label">ACCESS</span>
             <h2 className="text-2xl lg:text-3xl font-bold">アクセス</h2>
-          </motion.div>
+          </FadeInUp>
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
             {/* 左: テキスト情報 */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
+            <FadeInUp>
               <h3 className="text-xl font-bold mb-4">
                 {locations.headquarters.name}
               </h3>
@@ -334,16 +273,10 @@ export default function AboutPage() {
                   </svg>
                 </a>
               )}
-            </motion.div>
+            </FadeInUp>
 
             {/* 右: Google Map */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative aspect-[4/3] bg-gray-200"
-            >
+            <FadeInUp delay={100} className="relative aspect-[4/3] bg-gray-200">
               {/* Google Map埋め込みのプレースホルダー */}
               <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
                 <div className="text-center text-[var(--color-text-tertiary)]">
@@ -370,20 +303,14 @@ export default function AboutPage() {
                   <p className="text-xs mt-1">（埋め込みコードを設置してください）</p>
                 </div>
               </div>
-            </motion.div>
+            </FadeInUp>
           </div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-[120px] lg:py-[160px] px-6 bg-[var(--color-bg-gray)]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-[600px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[600px] mx-auto text-center">
           <h2 className="text-2xl lg:text-3xl font-bold">
             私たちと一緒に働く仲間を
             <br />
@@ -401,7 +328,7 @@ export default function AboutPage() {
               仕事を知る
             </Link>
           </div>
-        </motion.div>
+        </FadeInUp>
       </section>
     </main>
   );

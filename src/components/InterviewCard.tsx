@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { FadeInUp } from "@/components/animations";
 import type { Employee } from "@/lib/site";
 
 interface InterviewCardProps {
@@ -28,25 +28,14 @@ export default function InterviewCard({
       <section id={employee.id} className={`py-[100px] lg:py-[120px] ${bgClass}`}>
         <div className="max-w-container mx-auto px-6">
           {/* 番号とキャッチコピー */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-8"
-          >
+          <FadeInUp className="mb-8">
             <span className="text-[80px] lg:text-[120px] font-bold leading-none text-[var(--color-primary)] opacity-10">
               {String(index + 1).padStart(2, "0")}
             </span>
-          </motion.div>
+          </FadeInUp>
 
           {/* 全幅写真 */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative aspect-[21/9] mb-12 overflow-hidden"
-          >
+          <FadeInUp className="relative aspect-[21/9] mb-12 overflow-hidden">
             <Image
               src={employee.photo.main}
               alt={employee.name}
@@ -57,15 +46,10 @@ export default function InterviewCard({
             <div className="absolute bottom-8 left-8 text-white">
               <h3 className="text-3xl lg:text-4xl font-bold">{employee.catchcopy}</h3>
             </div>
-          </motion.div>
+          </FadeInUp>
 
           {/* プロフィール */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-[800px] mx-auto"
-          >
+          <FadeInUp className="max-w-[800px] mx-auto">
             <div className="flex flex-wrap items-center gap-4 mb-8">
               <span className="text-sm text-[var(--color-text-muted)]">
                 {employee.joinType === "new" ? "新卒入社" : "中途入社"}
@@ -112,7 +96,7 @@ export default function InterviewCard({
                 {employee.quote}
               </div>
             )}
-          </motion.div>
+          </FadeInUp>
         </div>
       </section>
     );
@@ -126,13 +110,7 @@ export default function InterviewCard({
       <div className="max-w-container mx-auto px-6">
         <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start ${!isLeft ? "lg:[direction:rtl]" : ""}`}>
           {/* 写真側 */}
-          <motion.div
-            initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:[direction:ltr]"
-          >
+          <FadeInUp className="lg:[direction:ltr]">
             <div className="relative">
               <span className="absolute -top-8 -left-4 text-[80px] lg:text-[100px] font-bold leading-none text-[var(--color-primary)] opacity-10 z-0">
                 {String(index + 1).padStart(2, "0")}
@@ -157,16 +135,10 @@ export default function InterviewCard({
                 ))}
               </div>
             )}
-          </motion.div>
+          </FadeInUp>
 
           {/* テキスト側 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:[direction:ltr]"
-          >
+          <FadeInUp delay={200} className="lg:[direction:ltr]">
             {/* キャッチコピー */}
             <h3 className="text-2xl lg:text-3xl font-bold leading-relaxed mb-6">
               {employee.catchcopy}
@@ -221,7 +193,7 @@ export default function InterviewCard({
                 </p>
               </div>
             )}
-          </motion.div>
+          </FadeInUp>
         </div>
       </div>
     </section>

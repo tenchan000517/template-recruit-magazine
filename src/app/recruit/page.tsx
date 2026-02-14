@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { FadeInUp, HeroBackground } from "@/components/animations";
 import { recruit } from "@/lib/site";
 
 export default function RecruitPage() {
@@ -13,7 +13,7 @@ export default function RecruitPage() {
     <main>
       {/* Section 1: ページヒーロー */}
       <section className="relative h-[30vh] min-h-[250px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
+        <HeroBackground className="absolute inset-0">
           <Image
             src="/images/recruit-hero.jpg"
             alt="募集要項"
@@ -22,24 +22,18 @@ export default function RecruitPage() {
             priority
           />
           <div className="absolute inset-0 bg-[var(--color-primary)]/70" />
-        </div>
+        </HeroBackground>
         <div className="relative z-10 text-center text-white px-6">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="text-sm tracking-[0.3em] opacity-80"
-          >
-            RECRUIT
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-4 text-3xl lg:text-5xl font-bold"
-          >
-            募集要項
-          </motion.h1>
+          <FadeInUp>
+            <span className="text-sm tracking-[0.3em] opacity-80">
+              RECRUIT
+            </span>
+          </FadeInUp>
+          <FadeInUp delay={100}>
+            <h1 className="mt-4 text-3xl lg:text-5xl font-bold">
+              募集要項
+            </h1>
+          </FadeInUp>
         </div>
       </section>
 
@@ -69,13 +63,9 @@ export default function RecruitPage() {
       <section className="py-[80px] lg:py-[100px] px-6">
         <div className="max-w-[900px] mx-auto space-y-20">
           {positions.map((position, index) => (
-            <motion.div
+            <FadeInUp
               key={position.id}
               id={position.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
               className="scroll-mt-[200px]"
             >
               {/* ヘッダー */}
@@ -159,7 +149,7 @@ export default function RecruitPage() {
                   <dd className="sm:col-span-3">{position.selectionProcess}</dd>
                 </div>
               </dl>
-            </motion.div>
+            </FadeInUp>
           ))}
         </div>
       </section>
@@ -167,25 +157,16 @@ export default function RecruitPage() {
       {/* Section 4: 応募の流れ */}
       <section className="py-[100px] lg:py-[120px] px-6 bg-[var(--color-bg-gray)]">
         <div className="max-w-container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="mb-12 text-center"
-          >
+          <FadeInUp className="mb-12 text-center">
             <span className="section-label">SELECTION FLOW</span>
             <h2 className="text-2xl lg:text-3xl font-bold">選考の流れ</h2>
-          </motion.div>
+          </FadeInUp>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-2">
             {selectionFlow.map((flow, index) => (
-              <motion.div
+              <FadeInUp
                 key={flow.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                delay={index * 100}
                 className="relative"
               >
                 {/* 矢印（PC時のみ、最後以外） */}
@@ -206,7 +187,7 @@ export default function RecruitPage() {
                     </p>
                   )}
                 </div>
-              </motion.div>
+              </FadeInUp>
             ))}
           </div>
         </div>
@@ -214,13 +195,7 @@ export default function RecruitPage() {
 
       {/* Section 5: FAQ誘導 */}
       <section className="py-[80px] lg:py-[100px] px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-[700px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[700px] mx-auto text-center">
           <h2 className="text-xl lg:text-2xl font-bold">
             ご不明な点はありませんか？
           </h2>
@@ -233,18 +208,12 @@ export default function RecruitPage() {
               よくある質問を見る
             </Link>
           </div>
-        </motion.div>
+        </FadeInUp>
       </section>
 
       {/* Section 6: CTA */}
       <section className="py-[120px] lg:py-[160px] px-6 bg-[var(--color-bg-primary-light)]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-[600px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[600px] mx-auto text-center">
           <h2 className="text-2xl lg:text-3xl font-bold">
             {recruit.cta.messages.top}
           </h2>
@@ -261,7 +230,7 @@ export default function RecruitPage() {
           <p className="mt-6 text-sm text-[var(--color-text-tertiary)]">
             お問い合わせ: {recruit.contact.phone}（{recruit.contact.hours}）
           </p>
-        </motion.div>
+        </FadeInUp>
       </section>
     </main>
   );

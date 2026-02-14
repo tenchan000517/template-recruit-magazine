@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { FadeInUp, FadeInImage, HeroBackground } from "@/components/animations";
 import { recruit, company } from "@/lib/site";
 
 export default function WorkPage() {
@@ -14,7 +14,7 @@ export default function WorkPage() {
     <main>
       {/* Section 1: ページヒーロー */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
+        <HeroBackground className="absolute inset-0">
           <Image
             src="/images/work-hero.jpg"
             alt="仕事の様子"
@@ -23,36 +23,24 @@ export default function WorkPage() {
             priority
           />
           <div className="absolute inset-0 bg-[var(--color-primary)]/70" />
-        </div>
+        </HeroBackground>
         <div className="relative z-10 text-center text-white px-6">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="text-sm tracking-[0.3em] opacity-80"
-          >
-            WORK
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-4 text-3xl lg:text-5xl font-bold"
-          >
-            仕事を知る
-          </motion.h1>
+          <FadeInUp>
+            <span className="text-sm tracking-[0.3em] opacity-80">
+              WORK
+            </span>
+          </FadeInUp>
+          <FadeInUp delay={100}>
+            <h1 className="mt-4 text-3xl lg:text-5xl font-bold">
+              仕事を知る
+            </h1>
+          </FadeInUp>
         </div>
       </section>
 
       {/* Section 2: 事業概要 */}
       <section className="py-[100px] lg:py-[120px] px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-[800px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[800px] mx-auto text-center">
           <p className="text-lg lg:text-xl leading-loose text-[var(--color-text-secondary)]">
             私たちは、精密機器の製造を通じて
             <br className="hidden lg:block" />
@@ -60,43 +48,30 @@ export default function WorkPage() {
           </p>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {["高い技術力", "チームワーク", "品質へのこだわり"].map((item, i) => (
-              <motion.div
+              <FadeInUp
                 key={item}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
+                delay={i * 100}
                 className="py-4 border-t-2 border-[var(--color-primary)]"
               >
                 <span className="text-lg font-medium">{item}</span>
-              </motion.div>
+              </FadeInUp>
             ))}
           </div>
-        </motion.div>
+        </FadeInUp>
       </section>
 
       {/* Section 3: 職種紹介（繰り返し） */}
       <section className="py-[80px] lg:py-[100px] bg-[var(--color-bg-gray)]">
         <div className="max-w-container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="mb-16"
-          >
+          <FadeInUp className="mb-16">
             <span className="section-label">JOB TYPES</span>
             <h2 className="text-2xl lg:text-3xl font-bold">職種紹介</h2>
-          </motion.div>
+          </FadeInUp>
 
           <div className="space-y-20 lg:space-y-32">
             {jobs.map((job, index) => (
-              <motion.div
+              <FadeInUp
                 key={job.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
                 className={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
                   index % 2 === 1 ? "lg:[direction:rtl]" : ""
                 }`}
@@ -106,11 +81,12 @@ export default function WorkPage() {
                   <div className="absolute top-4 left-4 z-10 text-6xl lg:text-8xl font-bold text-[var(--color-primary)]/20">
                     {String(index + 1).padStart(2, "0")}
                   </div>
-                  <Image
+                  <FadeInImage
                     src={job.photo || `/images/work/${job.id}.jpg`}
                     alt={job.title}
                     fill
                     className="object-cover"
+                    containerClassName="relative w-full h-full"
                   />
                 </div>
 
@@ -142,7 +118,7 @@ export default function WorkPage() {
                     {job.appeal}
                   </p>
                 </div>
-              </motion.div>
+              </FadeInUp>
             ))}
           </div>
         </div>
@@ -152,16 +128,10 @@ export default function WorkPage() {
       {daySchedule && (
         <section className="py-[100px] lg:py-[120px] px-6">
           <div className="max-w-container mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-12 text-center"
-            >
+            <FadeInUp className="mb-12 text-center">
               <span className="section-label">ONE DAY</span>
               <h2 className="text-2xl lg:text-3xl font-bold">{daySchedule.title}</h2>
-            </motion.div>
+            </FadeInUp>
 
             {/* タイムライン（PC: 横向き、SP: 縦向き） */}
             <div className="relative">
@@ -173,12 +143,9 @@ export default function WorkPage() {
 
                   <div className="flex justify-between">
                     {daySchedule.items.map((item, index) => (
-                      <motion.div
+                      <FadeInUp
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                        delay={index * 50}
                         className="relative flex flex-col items-center text-center"
                         style={{ width: `${100 / daySchedule.items.length}%` }}
                       >
@@ -199,7 +166,7 @@ export default function WorkPage() {
                             {item.description}
                           </span>
                         )}
-                      </motion.div>
+                      </FadeInUp>
                     ))}
                   </div>
                 </div>
@@ -208,12 +175,9 @@ export default function WorkPage() {
               {/* SP用 縦向きタイムライン */}
               <div className="lg:hidden space-y-0">
                 {daySchedule.items.map((item, index) => (
-                  <motion.div
+                  <FadeInUp
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    delay={index * 50}
                     className="relative flex gap-4 pb-8 last:pb-0"
                   >
                     {/* 縦線とドット */}
@@ -238,7 +202,7 @@ export default function WorkPage() {
                         </p>
                       )}
                     </div>
-                  </motion.div>
+                  </FadeInUp>
                 ))}
               </div>
             </div>
@@ -250,28 +214,19 @@ export default function WorkPage() {
       {careerPath && careerPath.length > 0 && (
         <section className="py-[100px] lg:py-[120px] px-6 bg-[var(--color-bg-primary-light)]">
           <div className="max-w-container mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-12 text-center"
-            >
+            <FadeInUp className="mb-12 text-center">
               <span className="section-label">CAREER PATH</span>
               <h2 className="text-2xl lg:text-3xl font-bold">キャリアパス</h2>
               <p className="mt-4 text-[var(--color-text-secondary)]">
                 あなたの成長を、会社全体でサポートします。
               </p>
-            </motion.div>
+            </FadeInUp>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
               {careerPath.map((path, index) => (
-                <motion.div
+                <FadeInUp
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  delay={index * 100}
                   className="relative"
                 >
                   {/* 矢印（PC時のみ、最後以外） */}
@@ -295,7 +250,7 @@ export default function WorkPage() {
                       {path.description}
                     </p>
                   </div>
-                </motion.div>
+                </FadeInUp>
               ))}
             </div>
           </div>
@@ -304,13 +259,7 @@ export default function WorkPage() {
 
       {/* Section 6: CTA */}
       <section className="py-[120px] lg:py-[160px] px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-[600px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[600px] mx-auto text-center">
           <h2 className="text-2xl lg:text-3xl font-bold">
             私たちと一緒に働く仲間を<br />ご紹介します
           </h2>
@@ -323,7 +272,7 @@ export default function WorkPage() {
               社員インタビューを見る
             </Link>
           </div>
-        </motion.div>
+        </FadeInUp>
       </section>
     </main>
   );

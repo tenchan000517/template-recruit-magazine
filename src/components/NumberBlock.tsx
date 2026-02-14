@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { FadeInUp } from "@/components/animations";
 
 interface NumberBlockProps {
   number: number | string;
@@ -22,8 +22,28 @@ function CountUp({
   delay?: number;
 }) {
   const [count, setCount] = useState(0);
+  const [isInView, setIsInView] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  // IntersectionObserver を使用してビュー内に入ったことを検出
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "-50px" }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!isInView) return;
@@ -73,11 +93,8 @@ export default function NumberBlock({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: delay * 0.1 }}
+    <FadeInUp
+      delay={delay * 100}
       className="text-left"
     >
       <div className="flex items-baseline gap-1">
@@ -107,6 +124,6 @@ export default function NumberBlock({
         )}
       </div>
       <p className="mt-2 text-sm text-[var(--color-text-muted)]">{label}</p>
-    </motion.div>
+    </FadeInUp>
   );
 }

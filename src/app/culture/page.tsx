@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { FadeInUp } from "@/components/animations";
 import { recruit } from "@/lib/site";
 
 export default function CulturePage() {
@@ -27,22 +27,16 @@ export default function CulturePage() {
           <div className="absolute inset-0 bg-[var(--color-primary)]/70" />
         </div>
         <div className="relative z-10 text-center text-white px-6">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="text-sm tracking-[0.3em] opacity-80"
-          >
-            CULTURE
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-4 text-3xl lg:text-5xl font-bold"
-          >
-            働く環境
-          </motion.h1>
+          <FadeInUp>
+            <span className="text-sm tracking-[0.3em] opacity-80">
+              CULTURE
+            </span>
+          </FadeInUp>
+          <FadeInUp delay={100}>
+            <h1 className="mt-4 text-3xl lg:text-5xl font-bold">
+              働く環境
+            </h1>
+          </FadeInUp>
         </div>
       </section>
 
@@ -50,28 +44,19 @@ export default function CulturePage() {
       {benefits?.highlights && benefits.highlights.length > 0 && (
         <section className="py-[100px] lg:py-[140px] px-6">
           <div className="max-w-container mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-16 text-center"
-            >
+            <FadeInUp className="mb-16 text-center">
               <span className="section-label">BENEFITS</span>
               <h2 className="text-2xl lg:text-3xl font-bold">福利厚生</h2>
               <p className="mt-4 text-[var(--color-text-secondary)]">
                 社員一人ひとりが安心して働ける環境を整えています。
               </p>
-            </motion.div>
+            </FadeInUp>
 
             <div className="space-y-16 lg:space-y-24">
               {benefits.highlights.map((benefit, index) => (
-                <motion.div
+                <FadeInUp
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  delay={index * 100}
                   className={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
                     index % 2 === 1 ? "lg:[direction:rtl]" : ""
                   }`}
@@ -123,7 +108,7 @@ export default function CulturePage() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </FadeInUp>
               ))}
             </div>
           </div>
@@ -134,24 +119,15 @@ export default function CulturePage() {
       {benefits?.categories && benefits.categories.length > 0 && (
         <section className="py-[80px] lg:py-[100px] px-6 bg-[var(--color-bg-gray)]">
           <div className="max-w-container mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-12 text-center"
-            >
+            <FadeInUp className="mb-12 text-center">
               <h3 className="text-xl lg:text-2xl font-bold">福利厚生一覧</h3>
-            </motion.div>
+            </FadeInUp>
 
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
               {benefits.categories.map((category, categoryIndex) => (
-                <motion.div
+                <FadeInUp
                   key={category.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
+                  delay={categoryIndex * 100}
                   className="bg-white p-6 lg:p-8"
                 >
                   <h4 className="text-lg font-bold mb-4 pb-3 border-b-2 border-[var(--color-primary)]">
@@ -168,7 +144,7 @@ export default function CulturePage() {
                       </li>
                     ))}
                   </ul>
-                </motion.div>
+                </FadeInUp>
               ))}
             </div>
           </div>
@@ -179,19 +155,13 @@ export default function CulturePage() {
       {training && training.length > 0 && (
         <section className="py-[100px] lg:py-[120px] px-6">
           <div className="max-w-container mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-12 text-center"
-            >
+            <FadeInUp className="mb-12 text-center">
               <span className="section-label">TRAINING</span>
               <h2 className="text-2xl lg:text-3xl font-bold">研修・教育制度</h2>
               <p className="mt-4 text-[var(--color-text-secondary)]">
                 入社後の成長を、しっかりサポートします。
               </p>
-            </motion.div>
+            </FadeInUp>
 
             {/* タイムライン（PC: 横向き、SP: 縦向き） */}
             <div className="relative">
@@ -203,12 +173,9 @@ export default function CulturePage() {
 
                   <div className="flex justify-between">
                     {training.map((item, index) => (
-                      <motion.div
+                      <FadeInUp
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                        delay={index * 50}
                         className="relative flex flex-col items-center text-center px-2"
                         style={{ width: `${100 / training.length}%` }}
                       >
@@ -236,7 +203,7 @@ export default function CulturePage() {
                         <span className="mt-2 text-xs text-[var(--color-text-tertiary)] px-1 line-clamp-3">
                           {item.description}
                         </span>
-                      </motion.div>
+                      </FadeInUp>
                     ))}
                   </div>
                 </div>
@@ -245,12 +212,9 @@ export default function CulturePage() {
               {/* SP用 縦向きタイムライン */}
               <div className="lg:hidden space-y-0">
                 {training.map((item, index) => (
-                  <motion.div
+                  <FadeInUp
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    delay={index * 50}
                     className="relative flex gap-4 pb-8 last:pb-0"
                   >
                     {/* 縦線とドット */}
@@ -278,7 +242,7 @@ export default function CulturePage() {
                         {item.description}
                       </p>
                     </div>
-                  </motion.div>
+                  </FadeInUp>
                 ))}
               </div>
             </div>
@@ -290,16 +254,10 @@ export default function CulturePage() {
       {gallery && gallery.length > 0 && (
         <section className="py-[80px] lg:py-[100px] px-6 bg-[var(--color-bg-primary-light)]">
           <div className="max-w-container mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-12 text-center"
-            >
+            <FadeInUp className="mb-12 text-center">
               <span className="section-label">GALLERY</span>
               <h2 className="text-2xl lg:text-3xl font-bold">オフィス紹介</h2>
-            </motion.div>
+            </FadeInUp>
 
             {/* 不規則グリッド */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4">
@@ -317,12 +275,9 @@ export default function CulturePage() {
                 };
 
                 return (
-                  <motion.div
+                  <FadeInUp
                     key={index}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    delay={index * 50}
                     className={`relative overflow-hidden group ${
                       sizeClasses[photo.size as keyof typeof sizeClasses] ||
                       sizeClasses.small
@@ -346,7 +301,7 @@ export default function CulturePage() {
                         <p className="text-white text-sm p-3">{photo.alt}</p>
                       </div>
                     </div>
-                  </motion.div>
+                  </FadeInUp>
                 );
               })}
             </div>
@@ -358,25 +313,16 @@ export default function CulturePage() {
       {employees && employees.length > 0 && (
         <section className="py-[100px] lg:py-[120px] px-6">
           <div className="max-w-container mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-12 text-center"
-            >
+            <FadeInUp className="mb-12 text-center">
               <span className="section-label">VOICE</span>
               <h2 className="text-2xl lg:text-3xl font-bold">社員の声</h2>
-            </motion.div>
+            </FadeInUp>
 
             <div className="grid md:grid-cols-3 gap-8">
               {employees.slice(0, 3).map((employee, index) => (
-                <motion.div
+                <FadeInUp
                   key={employee.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  delay={index * 100}
                   className="text-center"
                 >
                   {/* 顔写真 */}
@@ -415,7 +361,7 @@ export default function CulturePage() {
                   >
                     インタビューを読む →
                   </Link>
-                </motion.div>
+                </FadeInUp>
               ))}
             </div>
           </div>
@@ -424,13 +370,7 @@ export default function CulturePage() {
 
       {/* Section 7: CTA */}
       <section className="py-[120px] lg:py-[160px] px-6 bg-[var(--color-bg-gray)]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-[600px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[600px] mx-auto text-center">
           <h2 className="text-2xl lg:text-3xl font-bold">
             {cta?.messages?.culture || "一緒に働きませんか？"}
           </h2>
@@ -452,7 +392,7 @@ export default function CulturePage() {
               {cta?.secondary?.text || "募集要項を見る"}
             </Link>
           </div>
-        </motion.div>
+        </FadeInUp>
       </section>
     </main>
   );

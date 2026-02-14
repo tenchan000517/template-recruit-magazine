@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { FadeInUp } from "@/components/animations";
 import { recruit, company } from "@/lib/site";
 
 type FormStep = 1 | 2 | 3;
@@ -95,16 +95,13 @@ export default function EntryPage() {
       {/* Section 1: ページヒーロー */}
       <section className="py-[60px] lg:py-[80px] px-6 bg-[var(--color-primary)]">
         <div className="max-w-[600px] mx-auto text-center text-white">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+          <FadeInUp>
             <span className="text-white/60 text-sm tracking-widest uppercase">Entry</span>
             <h1 className="mt-4 text-3xl lg:text-4xl font-bold">エントリー</h1>
             <p className="mt-4 text-white/80">
               所要時間: 約5分
             </p>
-          </motion.div>
+          </FadeInUp>
         </div>
       </section>
 
@@ -151,197 +148,197 @@ export default function EntryPage() {
       <section className="py-[60px] lg:py-[80px] px-6">
         <div className="max-w-[600px] mx-auto">
           {step === 1 && (
-            <motion.form
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleNext();
-              }}
-            >
-              <div className="space-y-8">
-                {/* 応募職種 */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    応募職種 <span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    name="position"
-                    value={formData.position}
-                    onChange={handleChange}
-                    className={inputClass("position")}
-                  >
-                    <option value="">選択してください</option>
-                    {positions.map((pos) => (
-                      <option key={pos.id} value={pos.jobTitle}>
-                        {pos.jobTitle}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.position && (
-                    <p className="mt-1 text-sm text-red-500">{errors.position}</p>
-                  )}
+            <FadeInUp>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleNext();
+                }}
+              >
+                <div className="space-y-8">
+                  {/* 応募職種 */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      応募職種 <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      name="position"
+                      value={formData.position}
+                      onChange={handleChange}
+                      className={inputClass("position")}
+                    >
+                      <option value="">選択してください</option>
+                      {positions.map((pos) => (
+                        <option key={pos.id} value={pos.jobTitle}>
+                          {pos.jobTitle}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.position && (
+                      <p className="mt-1 text-sm text-red-500">{errors.position}</p>
+                    )}
+                  </div>
+
+                  {/* お名前 */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      お名前 <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="山田 太郎"
+                      className={inputClass("name")}
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+                    )}
+                  </div>
+
+                  {/* ふりがな */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      ふりがな <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="nameKana"
+                      value={formData.nameKana}
+                      onChange={handleChange}
+                      placeholder="やまだ たろう"
+                      className={inputClass("nameKana")}
+                    />
+                    {errors.nameKana && (
+                      <p className="mt-1 text-sm text-red-500">{errors.nameKana}</p>
+                    )}
+                  </div>
+
+                  {/* 生年月日 */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      生年月日 <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="date"
+                      name="birthDate"
+                      value={formData.birthDate}
+                      onChange={handleChange}
+                      className={inputClass("birthDate")}
+                    />
+                    {errors.birthDate && (
+                      <p className="mt-1 text-sm text-red-500">{errors.birthDate}</p>
+                    )}
+                  </div>
+
+                  {/* メールアドレス */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      メールアドレス <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="example@email.com"
+                      className={inputClass("email")}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+                    )}
+                  </div>
+
+                  {/* 電話番号 */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      電話番号 <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="090-1234-5678"
+                      className={inputClass("phone")}
+                    />
+                    {errors.phone && (
+                      <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
+                    )}
+                  </div>
+
+                  {/* 郵便番号（任意） */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      郵便番号
+                    </label>
+                    <input
+                      type="text"
+                      name="zipCode"
+                      value={formData.zipCode}
+                      onChange={handleChange}
+                      placeholder="000-0000"
+                      className={inputClass("zipCode")}
+                    />
+                  </div>
+
+                  {/* 住所（任意） */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      住所
+                    </label>
+                    <input
+                      type="text"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      placeholder="〇〇県〇〇市..."
+                      className={inputClass("address")}
+                    />
+                  </div>
+
+                  {/* 志望動機（任意） */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      志望動機
+                    </label>
+                    <textarea
+                      name="motivation"
+                      value={formData.motivation}
+                      onChange={handleChange}
+                      rows={4}
+                      className={inputClass("motivation")}
+                    />
+                  </div>
+
+                  {/* 質問（任意） */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      ご質問・ご相談
+                    </label>
+                    <textarea
+                      name="questions"
+                      value={formData.questions}
+                      onChange={handleChange}
+                      rows={4}
+                      className={inputClass("questions")}
+                    />
+                  </div>
                 </div>
 
-                {/* お名前 */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    お名前 <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="山田 太郎"
-                    className={inputClass("name")}
-                  />
-                  {errors.name && (
-                    <p className="mt-1 text-sm text-red-500">{errors.name}</p>
-                  )}
+                <div className="mt-12 text-center">
+                  <button type="submit" className="btn-primary w-full sm:w-auto">
+                    確認画面へ
+                  </button>
                 </div>
-
-                {/* ふりがな */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    ふりがな <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="nameKana"
-                    value={formData.nameKana}
-                    onChange={handleChange}
-                    placeholder="やまだ たろう"
-                    className={inputClass("nameKana")}
-                  />
-                  {errors.nameKana && (
-                    <p className="mt-1 text-sm text-red-500">{errors.nameKana}</p>
-                  )}
-                </div>
-
-                {/* 生年月日 */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    生年月日 <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="date"
-                    name="birthDate"
-                    value={formData.birthDate}
-                    onChange={handleChange}
-                    className={inputClass("birthDate")}
-                  />
-                  {errors.birthDate && (
-                    <p className="mt-1 text-sm text-red-500">{errors.birthDate}</p>
-                  )}
-                </div>
-
-                {/* メールアドレス */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    メールアドレス <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="example@email.com"
-                    className={inputClass("email")}
-                  />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-                  )}
-                </div>
-
-                {/* 電話番号 */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    電話番号 <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="090-1234-5678"
-                    className={inputClass("phone")}
-                  />
-                  {errors.phone && (
-                    <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
-                  )}
-                </div>
-
-                {/* 郵便番号（任意） */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    郵便番号
-                  </label>
-                  <input
-                    type="text"
-                    name="zipCode"
-                    value={formData.zipCode}
-                    onChange={handleChange}
-                    placeholder="000-0000"
-                    className={inputClass("zipCode")}
-                  />
-                </div>
-
-                {/* 住所（任意） */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    住所
-                  </label>
-                  <input
-                    type="text"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleChange}
-                    placeholder="〇〇県〇〇市..."
-                    className={inputClass("address")}
-                  />
-                </div>
-
-                {/* 志望動機（任意） */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    志望動機
-                  </label>
-                  <textarea
-                    name="motivation"
-                    value={formData.motivation}
-                    onChange={handleChange}
-                    rows={4}
-                    className={inputClass("motivation")}
-                  />
-                </div>
-
-                {/* 質問（任意） */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    ご質問・ご相談
-                  </label>
-                  <textarea
-                    name="questions"
-                    value={formData.questions}
-                    onChange={handleChange}
-                    rows={4}
-                    className={inputClass("questions")}
-                  />
-                </div>
-              </div>
-
-              <div className="mt-12 text-center">
-                <button type="submit" className="btn-primary w-full sm:w-auto">
-                  確認画面へ
-                </button>
-              </div>
-            </motion.form>
+              </form>
+            </FadeInUp>
           )}
 
           {/* Section 3: 確認画面 */}
           {step === 2 && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <FadeInUp>
               <h2 className="text-xl font-bold mb-8">入力内容のご確認</h2>
 
               <div className="space-y-6">
@@ -387,16 +384,12 @@ export default function EntryPage() {
                   </button>
                 </div>
               </form>
-            </motion.div>
+            </FadeInUp>
           )}
 
           {/* Section 4: 完了画面 */}
           {step === 3 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-12"
-            >
+            <FadeInUp className="text-center py-12">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="w-8 h-8 text-green-600"
@@ -444,7 +437,7 @@ export default function EntryPage() {
               <Link href="/" className="text-link">
                 トップページに戻る
               </Link>
-            </motion.div>
+            </FadeInUp>
           )}
         </div>
       </section>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { FadeInUp } from "@/components/animations";
 import type { Employee } from "@/lib/site";
 
 interface EmployeeCardProps {
@@ -15,11 +15,8 @@ export default function EmployeeCard({ employee, index }: EmployeeCardProps) {
   const yearsAtCompany = currentYear - employee.joinYear;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.15 }}
+    <FadeInUp
+      delay={index * 150}
       className="group relative"
     >
       {/* 番号表示 */}
@@ -55,6 +52,6 @@ export default function EmployeeCard({ employee, index }: EmployeeCardProps) {
           インタビューを読む →
         </Link>
       </div>
-    </motion.div>
+    </FadeInUp>
   );
 }

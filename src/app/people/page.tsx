@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { FadeInUp } from "@/components/animations";
 import { recruit, company, getEmployeeById } from "@/lib/site";
 import InterviewCard from "@/components/InterviewCard";
 
@@ -35,11 +35,7 @@ export default function PeoplePage() {
         </div>
 
         <div className="relative z-20 w-full px-6 lg:px-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <FadeInUp>
             <span className="text-white/60 text-sm tracking-widest uppercase">People</span>
             <h1 className="mt-4 text-white text-4xl lg:text-5xl font-bold">
               社員を知る
@@ -48,18 +44,13 @@ export default function PeoplePage() {
               {company.nameShort || "当社"}で働く社員のリアルな声をお届けします。
               先輩たちの経験や想いを通じて、会社の雰囲気を感じてください。
             </p>
-          </motion.div>
+          </FadeInUp>
         </div>
       </section>
 
       {/* Section 2: インタビュー導入 */}
       <section className="py-[80px] lg:py-[100px] px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-[700px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[700px] mx-auto text-center">
           <span className="section-label">INTERVIEW</span>
           <div className="section-line mx-auto" />
           <p className="text-[var(--color-text-secondary)] leading-loose">
@@ -67,7 +58,7 @@ export default function PeoplePage() {
             {company.nameShort || "当社"}で働いています。
             一人ひとりのストーリーを通じて、私たちの会社を知ってください。
           </p>
-        </motion.div>
+        </FadeInUp>
 
         {/* 社員ナビゲーション */}
         <div className="mt-12 max-w-container mx-auto">
@@ -99,12 +90,7 @@ export default function PeoplePage() {
       {crosstalk && (
         <section className="py-[100px] lg:py-[120px] px-6 bg-[var(--color-bg-primary-light)]">
           <div className="max-w-[800px] mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
+            <FadeInUp className="text-center mb-12">
               <span className="section-label">CROSSTALK</span>
               <h2 className="text-2xl lg:text-3xl font-bold">
                 {crosstalk.title}
@@ -112,7 +98,7 @@ export default function PeoplePage() {
               <p className="mt-4 text-[var(--color-text-secondary)]">
                 {crosstalk.description}
               </p>
-            </motion.div>
+            </FadeInUp>
 
             {/* 参加者 */}
             <div className="flex justify-center gap-6 mb-12">
@@ -137,12 +123,7 @@ export default function PeoplePage() {
             </div>
 
             {/* 会話 */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
+            <FadeInUp className="space-y-6">
               {crosstalk.conversation.map((msg, i) => {
                 const emp = getEmployeeById(msg.speaker);
                 const isEven = i % 2 === 0;
@@ -176,19 +157,14 @@ export default function PeoplePage() {
                   </div>
                 );
               })}
-            </motion.div>
+            </FadeInUp>
           </div>
         </section>
       )}
 
       {/* Section 5: CTA */}
       <section className="py-[120px] lg:py-[140px] px-6 bg-[var(--color-bg-gray)]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-[600px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[600px] mx-auto text-center">
           <h2 className="text-2xl lg:text-3xl font-bold">
             {recruit.cta.messages.people}
           </h2>
@@ -204,7 +180,7 @@ export default function PeoplePage() {
               {recruit.cta.primary.text}
             </Link>
           </div>
-        </motion.div>
+        </FadeInUp>
       </section>
     </main>
   );

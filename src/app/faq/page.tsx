@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { FadeInUp } from "@/components/animations";
 import { recruit } from "@/lib/site";
 
 export default function FAQPage() {
@@ -23,22 +23,16 @@ export default function FAQPage() {
           <div className="absolute inset-0 bg-[var(--color-primary)]/70" />
         </div>
         <div className="relative z-10 text-center text-white px-6">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="text-sm tracking-[0.3em] opacity-80"
-          >
-            FAQ
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-4 text-3xl lg:text-5xl font-bold"
-          >
-            よくある質問
-          </motion.h1>
+          <FadeInUp>
+            <span className="text-sm tracking-[0.3em] opacity-80">
+              FAQ
+            </span>
+          </FadeInUp>
+          <FadeInUp delay={100}>
+            <h1 className="mt-4 text-3xl lg:text-5xl font-bold">
+              よくある質問
+            </h1>
+          </FadeInUp>
         </div>
       </section>
 
@@ -63,13 +57,9 @@ export default function FAQPage() {
       <section className="py-[80px] lg:py-[100px] px-6">
         <div className="max-w-[900px] mx-auto space-y-16 lg:space-y-20">
           {faqCategories.map((category, categoryIndex) => (
-            <motion.div
+            <FadeInUp
               key={category.category}
               id={category.category.replace(/\s/g, "-")}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
               className="scroll-mt-[100px]"
             >
               {/* カテゴリヘッダー */}
@@ -83,12 +73,9 @@ export default function FAQPage() {
               {/* FAQ項目 */}
               <div className="space-y-8">
                 {category.items.map((item, itemIndex) => (
-                  <motion.div
+                  <FadeInUp
                     key={itemIndex}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: itemIndex * 0.05 }}
+                    delay={itemIndex * 50}
                     className="border-b border-[var(--color-border)] pb-8 last:border-b-0"
                   >
                     {/* 質問 */}
@@ -110,23 +97,17 @@ export default function FAQPage() {
                         {item.answer}
                       </p>
                     </div>
-                  </motion.div>
+                  </FadeInUp>
                 ))}
               </div>
-            </motion.div>
+            </FadeInUp>
           ))}
         </div>
       </section>
 
       {/* Section 4: 問い合わせ誘導 */}
       <section className="py-[80px] lg:py-[100px] px-6 bg-[var(--color-bg-gray)]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-[700px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[700px] mx-auto text-center">
           <h2 className="text-xl lg:text-2xl font-bold">
             お探しの質問は見つかりましたか？
           </h2>
@@ -153,18 +134,12 @@ export default function FAQPage() {
               </a>
             </p>
           </div>
-        </motion.div>
+        </FadeInUp>
       </section>
 
       {/* Section 5: CTA */}
       <section className="py-[120px] lg:py-[160px] px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-[600px] mx-auto text-center"
-        >
+        <FadeInUp className="max-w-[600px] mx-auto text-center">
           <h2 className="text-2xl lg:text-3xl font-bold">
             {recruit.cta.messages.top}
           </h2>
@@ -180,7 +155,7 @@ export default function FAQPage() {
               エントリーする
             </Link>
           </div>
-        </motion.div>
+        </FadeInUp>
       </section>
     </main>
   );
